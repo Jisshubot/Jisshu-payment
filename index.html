@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Coded by @Mr_SPIDY -->
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="author" content="zisnan">
+    <meta name="description" content="Create Payment Link of your UPI ID!">
+    <link rel="icon" href="https://graph.org/file/2f094c81af60c83f28f84.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .banner img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .name {
+            font-size: 28px;
+            color: #2d3748;
+            margin: 10px 0;
+        }
+
+        .title {
+            font-size: 20px;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+
+        .title img {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            vertical-align: middle;
+        }
+
+        .pay-btn {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .pay-btn button {
+            padding: 14px 28px;
+            font-size: 20px;
+            color: #ffffff;
+            background-color: #2b6cb0;
+            border: none;
+            border-radius: 50px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            outline: none; /* Remove outline */
+        }
+
+        .pay-btn button:hover {
+            background-color: #2c5282;
+            transform: translateY(-2px);
+        }
+
+        .create-link-btn {
+            background-color: #38a169; /* Green color for Create Link button */
+        }
+
+        .create-link-btn:hover {
+            background-color: #2f855a; /* Darker green on hover */
+        }
+
+        .contact-btn {
+            background-color: #e53e3e; /* Red color for Contact button */
+        }
+
+        .contact-btn:hover {
+            background-color: #c53030; /* Darker red on hover */
+        }
+
+        .desc {
+            font-size: 16px;
+            color: #4a5568;
+            margin-top: 30px;
+        }
+
+        .desc a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+
+        .desc a:hover {
+            text-decoration: underline;
+        }
+
+        .love {
+            color: #e53e3e;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+
+            .title {
+                font-size: 18px;
+            }
+
+            .title img {
+                width: 25px;
+                height: 25px;
+            }
+
+            .pay-btn button {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+
+            .desc {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <title>UPI Link</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174919510-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-174919510-1');
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="banner animate__animated animate__fadeInDown">
+            <img src="https://graph.org/file/5263af48bf876f9255c1f.jpg" alt="QR Code">
+        </div>
+
+        <h2 class="name animate__animated animate__rubberBand">https://pay.ydzone.lol/<your-upi-id>/<amount>
+</h2>
+
+        <div class="title animate__animated animate__fadeInUp">Secure and instant payments powered by
+            <br>
+            <img src="https://camo.githubusercontent.com/e37ac76f584a7fdd0f5672be227ecb0e7ed9490041f43dde19a78e7066215894/68747470733a2f2f74656c656772612e70682f66696c652f3033633435383165626432613065323139373264652e706e67"
+                alt="Icon 1">
+            <img src="https://camo.githubusercontent.com/74293a663cf3eabdd8862012d99dbec254a27988a5eae1ef5a146d3e5bb3d571/68747470733a2f2f74656c656772612e70682f66696c652f6532393061623464316462663161653164616231302e706e67"
+                alt="Icon 2">
+        </div>
+
+        <div class="pay-btn animate__animated animate__fadeIn">
+            <button onclick="payNow()">Pay Now</button>
+            <button class="create-link-btn" onclick="createLink()">Create your UPI Link</button>
+            
+             <h3 class="name animate__animated animate__rubberBand">After making the payment, click on the button below and send the screenshot of the payment to the owner, then the owner will give you the premium.</h3>
+            <button class="contact-btn" onclick="contact()">Contact </button>
+        </div>
+
+        <div class="desc animate__animated animate__fadeInUp">Made with <span class="love">❤️</span> by
+            <a href="https://telegram.me/IM_JISSHU">ZISHAN</a>
+        </div>
+    </div>
+
+    <script>
+        function payNow() {
+            window.location.href = "upi://pay?pn=YDZONE&pa=rpy.jishan@fam&cu=INR&am=100.0";
+        }
+
+        function createLink() {
+            window.location.href = "premium.html";
+        }
+
+        function contact() {
+            window.location.href = "https://telegram.me/Mr_SPIDY";
+        }
+    </script>
+</body>
+</html>
+
+
+

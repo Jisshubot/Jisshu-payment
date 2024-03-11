@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Coded by @Mr_SPIDY -->
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Tags -->
+    <meta name="author" content="Mr_SPIDY">
+    <meta name="description" content="Create Payment Link of your UPI ID!">
+
+    <link rel="icon" href="https://graph.org/file/2f094c81af60c83f28f84.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <title>UPI Payment</title>
+
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: #333;
+        }
+
+        .card {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .banner2 img {
+            height: 180px;
+        }
+
+        .create-name {
+            font-size: 28px;
+            color: #2d3748;
+            margin: 10px 0;
+        }
+
+        .create {
+            font-size: 16px;
+            color: #4a5568;
+            margin-top: 20px;
+        }
+
+        .actions {
+            margin-top: 30px;
+        }
+
+        .pay-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #2b6cb0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+
+        button:hover {
+            background-color: #2c5282;
+            transform: translateY(-2px);
+        }
+
+        .desc {
+            font-size: 14px;
+            color: #4a5568;
+            margin-top: 20px;
+        }
+
+        .desc a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+
+        .desc a:hover {
+            text-decoration: underline;
+        }
+
+        .love {
+            color: #e53e3e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="banner2">
+            <img src="https://i.imgur.com/nCmLCyt.png" alt="UPI QR Code">
+        </div>
+        <h2 class="create-name">Create shareable UPI Payment links!</h2>
+
+        <p class="create">Just add your UPI ID here<br><b>https://pay.ydzone.lol/&lt;your-upi-id&gt;/&lt;amount&gt;</b><br><br>Or,<br><b>Use My UPI Link Generator Tool</b></p>
+        <div class="actions">
+            <div class="pay-btn">
+                <input type="text" placeholder="Enter your UPI ID" id="upiid">
+                <input type='number' step='1.0' placeholder="Enter Amount (Optional)" id="amountid">
+                <input type="text" placeholder="Get your UPI Link" id="upilink" hidden disabled>
+                <button onclick="getLink()">
+                    <span>Create and Copy Link</span>
+                </button>
+                <br><br>
+                <a href="https://telegram.me/YDMovieZone">
+                    <button>
+                        <span>Join Telegram</span>
+                    </button>
+                </a>
+                <br>
+            </div>
+        </div>
+
+        <div class="desc link"> <a href="https://telegram.me/Mr_SPIDY">Made with <span
+                    class="love">❤️</span> by zishan</a></div>
+
+    </div>
+
+    <script>
+        var baseUrl = window.location.protocol + "//" + window.location.host;
+        var upiid = document.getElementById("upiid");
+        var amountid = document.getElementById("amountid");
+        var upilink = document.getElementById("upilink");
+
+        function getLink() {
+            if (upiid.value.indexOf("@") !== -1) {
+                var amount = "";
+                if (isNumeric(amountid.value)) {
+                    amount = "/" + amountid.value;
+                }
+                upilink.value = baseUrl + "/" + upiid.value + amount;
+                upilink.style.display = "block";
+                navigator.clipboard.writeText(upilink.value);
+                var tooltip = document.createElement("span");
+                tooltip.className = "tooltiptext";
+                tooltip.innerHTML = "Copied to Clipboard!";
+                var button = document.querySelector("button");
+                button.appendChild(tooltip);
+                setTimeout(function () {
+                    button.removeChild(tooltip);
+                }, 3000);
+            } else {
+                alert("Invalid UPI ID Entered");
+            }
+        }
+
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+    </script>
+</body>
+
+</html>
